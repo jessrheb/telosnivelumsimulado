@@ -1,600 +1,4 @@
-const repassesDados = [
-  {
-    orgao: 'Polícia Civil',
-    data: '01/01/2024',
-    valor: 5500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '02/01/2024',
-    valor: 6000,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '03/01/2024',
-    valor: 4500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '04/01/2024',
-    valor: 7000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '05/01/2024',
-    valor: 3500,
-    status: 'falha',
-    motivo: 'Documentação incompleta',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '06/01/2024',
-    valor: 8000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '07/01/2024',
-    valor: 9000,
-    status: 'falha',
-    motivo: 'Erro no sistema',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '08/01/2024',
-    valor: 4000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '09/01/2024',
-    valor: 5000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '10/01/2024',
-    valor: 6500,
-    status: 'falha',
-    motivo: 'Falta de recursos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '11/01/2024',
-    valor: 5500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '12/01/2024',
-    valor: 6000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '13/01/2024',
-    valor: 3000,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '14/01/2024',
-    valor: 7000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '15/01/2024',
-    valor: 8000,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '16/01/2024',
-    valor: 5200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '17/01/2024',
-    valor: 6100,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '18/01/2024',
-    valor: 4600,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '19/01/2024',
-    valor: 7100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '20/01/2024',
-    valor: 3600,
-    status: 'falha',
-    motivo: 'Sistema fora do ar',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '21/01/2024',
-    valor: 8100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '22/01/2024',
-    valor: 9100,
-    status: 'falha',
-    motivo: 'Recursos insuficientes',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '23/01/2024',
-    valor: 4100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '24/01/2024',
-    valor: 5100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '25/01/2024',
-    valor: 6600,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '26/01/2024',
-    valor: 5600,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '27/01/2024',
-    valor: 6100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '28/01/2024',
-    valor: 3100,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '29/01/2024',
-    valor: 7100,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '30/01/2024',
-    valor: 8100,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '31/01/2024',
-    valor: 5300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '01/01/2024',
-    valor: 6200,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '02/01/2024',
-    valor: 4700,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '03/01/2024',
-    valor: 7200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '04/01/2024',
-    valor: 3700,
-    status: 'falha',
-    motivo: 'Sistema fora do ar',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '05/01/2024',
-    valor: 8200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '06/01/2024',
-    valor: 9200,
-    status: 'falha',
-    motivo: 'Recursos insuficientes',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '07/01/2024',
-    valor: 4200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '08/01/2024',
-    valor: 5200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '09/01/2024',
-    valor: 6700,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '10/01/2024',
-    valor: 5700,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '11/01/2024',
-    valor: 6200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '12/01/2024',
-    valor: 3200,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '13/01/2024',
-    valor: 7200,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '14/01/2024',
-    valor: 8200,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '15/01/2024',
-    valor: 5400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '16/01/2024',
-    valor: 6300,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '17/01/2024',
-    valor: 4800,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '18/01/2024',
-    valor: 7300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '19/01/2024',
-    valor: 3800,
-    status: 'falha',
-    motivo: 'Sistema fora do ar',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '20/01/2024',
-    valor: 8300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '21/01/2024',
-    valor: 9300,
-    status: 'falha',
-    motivo: 'Recursos insuficientes',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '22/01/2024',
-    valor: 4300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '23/01/2024',
-    valor: 5300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '24/01/2024',
-    valor: 6800,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '25/01/2024',
-    valor: 5800,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '26/01/2024',
-    valor: 6300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '27/01/2024',
-    valor: 3300,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '28/01/2024',
-    valor: 7300,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '29/01/2024',
-    valor: 8300,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '30/01/2024',
-    valor: 5500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '31/01/2024',
-    valor: 6400,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '01/01/2024',
-    valor: 4900,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '02/01/2024',
-    valor: 7400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '03/01/2024',
-    valor: 3900,
-    status: 'falha',
-    motivo: 'Sistema fora do ar',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '04/01/2024',
-    valor: 8400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '05/01/2024',
-    valor: 9400,
-    status: 'falha',
-    motivo: 'Recursos insuficientes',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '06/01/2024',
-    valor: 4400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '07/01/2024',
-    valor: 5400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '08/01/2024',
-    valor: 6900,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '09/01/2024',
-    valor: 5900,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '10/01/2024',
-    valor: 6400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '11/01/2024',
-    valor: 3400,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '12/01/2024',
-    valor: 7400,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '13/01/2024',
-    valor: 8400,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '14/01/2024',
-    valor: 5600,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '15/01/2024',
-    valor: 6500,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '16/01/2024',
-    valor: 5000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Corpo de Bombeiros',
-    data: '17/01/2024',
-    valor: 7500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Guarda Municipal',
-    data: '18/01/2024',
-    valor: 4000,
-    status: 'falha',
-    motivo: 'Sistema fora do ar',
-  },
-  {
-    orgao: 'Receita Federal',
-    data: '19/01/2024',
-    valor: 8500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Ministério Público',
-    data: '20/01/2024',
-    valor: 9500,
-    status: 'falha',
-    motivo: 'Recursos insuficientes',
-  },
-  {
-    orgao: 'Defesa Civil',
-    data: '21/01/2024',
-    valor: 4500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Detran',
-    data: '22/01/2024',
-    valor: 5500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Federal',
-    data: '23/01/2024',
-    valor: 7000,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Ibama',
-    data: '24/01/2024',
-    valor: 6000,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Anvisa',
-    data: '25/01/2024',
-    valor: 6500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Inmetro',
-    data: '26/01/2024',
-    valor: 3500,
-    status: 'falha',
-    motivo: 'Dados incorretos',
-  },
-  {
-    orgao: 'Cetesb',
-    data: '27/01/2024',
-    valor: 7500,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Susep',
-    data: '28/01/2024',
-    valor: 8500,
-    status: 'falha',
-    motivo: 'Problemas técnicos',
-  },
-  {
-    orgao: 'Polícia Civil',
-    data: '29/01/2024',
-    valor: 5700,
-    status: 'sucesso',
-  },
-  {
-    orgao: 'Polícia Rodoviária Federal',
-    data: '30/01/2024',
-    valor: 6600,
-    status: 'falha',
-    motivo: 'Erro humano',
-  },
-  {
-    orgao: 'Polícia Militar',
-    data: '31/01/2024',
-    valor: 5100,
-    status: 'sucesso',
-  },
-];
+import { repasses } from './dados.js';
 
 /// REUSABLE FUNCTIONS
 
@@ -605,20 +9,18 @@ function calcularValor(array) {
 }
 
 function filtrarLista(status, propriedade) {
-  const listaFiltrada = repassesDados.filter(
-    (repasse) => repasse.status === status
-  );
+  const listaFiltrada = repasses.filter((repasse) => repasse.status === status);
 
   if (status !== undefined && propriedade !== undefined) {
     return Map.groupBy(listaFiltrada, (repasse) => repasse[propriedade]);
   }
   if (status !== undefined) {
-    return repassesDados.filter((repasse) => repasse.status === status);
+    return repasses.filter((repasse) => repasse.status === status);
   }
   if (propriedade !== undefined) {
-    return Map.groupBy(repassesDados, (repasse) => repasse[propriedade]);
+    return Map.groupBy(repasses, (repasse) => repasse[propriedade]);
   }
-  return repassesDados;
+  return repasses;
 }
 
 function extrairString(repasse, propriedade) {
@@ -755,7 +157,7 @@ console.log(
   } em ${maiorRepasse.data}, ${
     maiorRepasse.status === 'sucesso'
       ? `bem sucedido.`
-      : `com falha por motivo de ${maiorRepasse.motivo.toLowerCase()}.`
+      : `com falha por motivo de ${maiorRepasse.motivo.toLowerCase()}`
   }`
 );
 
@@ -837,7 +239,30 @@ calcularEstatisticasRepasses('falha', 'motivo').forEach((motivo) =>
 
 /// USER STORY 4
 
-const repassesDadosInvalidos = [
+function exibirRepassesOrgao(repasses) {
+  const [repassesFiltrados] = Array.from(
+    filtrarLista(undefined, 'orgao')
+  ).filter((orgao) => orgao[0] === repasses);
+
+  const orgaoRepasses = repassesFiltrados[1];
+
+  console.log(
+    `${orgaoRepasses.length} repasses realizados para ${repassesFiltrados[0]}:`
+  );
+  orgaoRepasses.forEach((repasse) => {
+    console.log(
+      `Repasse ${
+        repasse.status === 'sucesso' ? 'bem sucedido' : 'com falha'
+      } no valor de ${repasse.valor} em ${repasse.data}`
+    );
+  });
+}
+
+exibirRepassesOrgao('Susep');
+
+/// USER STORY 5
+
+repasses.push(
   {
     orgao: 'MEC',
     data: '01/01/2024',
@@ -900,36 +325,30 @@ const repassesDadosInvalidos = [
     data: '22/01/2024',
     valor: 1100,
     status: 'falha',
-  },
-];
-
-function filtrarListaInvalida(status, propriedade) {
-  const listaFiltrada = repassesDadosInvalidos.filter(
-    (repasse) => repasse.status === status
-  );
-
-  if (status !== undefined && propriedade !== undefined) {
-    return Map.groupBy(listaFiltrada, (repasse) => repasse[propriedade]);
   }
-  if (status !== undefined) {
-    return repassesDadosInvalidos.filter(
-      (repasse) => repasse.status === status
-    );
-  }
-  if (propriedade !== undefined) {
-    return Map.groupBy(
-      repassesDadosInvalidos,
-      (repasse) => repasse[propriedade]
-    );
-  }
-  return repassesDadosInvalidos;
-}
+);
 
-filtrarListaInvalida('falha', 'motivo').forEach((repasse) => {
+filtrarLista('falha', 'motivo').forEach((repasse) => {
   const [detalhes] = repasse;
   if (detalhes.motivo !== undefined) return;
 
   console.log(
-    `Detalhes das transações que não foram processadas com sucesso: ${detalhes.orgao} em ${detalhes.data}, no valor de ${detalhes.valor}`
+    `Detalhes das transações que não foram processadas com sucesso: repasse para ${detalhes.orgao} em ${detalhes.data}, no valor de ${detalhes.valor}`
   );
+});
+
+/// USER STORY 6
+
+let repassesInvalidos = [];
+
+filtrarLista('falha', 'motivo').forEach((repasse) => {
+  const dadosInvalidos = Array.from(repasse).filter(
+    (detalhes) => detalhes.motivo === undefined
+  );
+
+  if (dadosInvalidos.length === 0) return;
+  repassesInvalidos.push(dadosInvalidos);
+
+  const index = repasses.indexOf(dadosInvalidos);
+  repasses.splice(index, 1);
 });
