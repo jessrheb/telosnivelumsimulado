@@ -1,5 +1,7 @@
 import { repasses } from './dados.js';
 
+let repassesInvalidos = [];
+
 /// REUSABLE FUNCTIONS
 
 function calcularValor(array) {
@@ -11,14 +13,29 @@ function calcularValor(array) {
 function filtrarLista(status, propriedade) {
   const listaFiltrada = repasses.filter((repasse) => repasse.status === status);
 
+  /// USER STORY 6
+
+  const dadosInvalidos = repasses.filter(
+    (detalhes) => detalhes.status === 'falha' && detalhes.motivo === undefined
+  );
+
+  if (dadosInvalidos.length !== 0) {
+    repassesInvalidos.push(dadosInvalidos);
+
+    const indexInvalida = repasses.indexOf(dadosInvalidos);
+    repasses.splice(indexInvalida, 1);
+  }
+
   if (status !== undefined && propriedade !== undefined) {
     return Map.groupBy(listaFiltrada, (repasse) => repasse[propriedade]);
   }
-  if (status !== undefined) {
-    return repasses.filter((repasse) => repasse.status === status);
-  }
+
   if (propriedade !== undefined) {
     return Map.groupBy(repasses, (repasse) => repasse[propriedade]);
+  }
+
+  if (status !== undefined) {
+    return listaFiltrada;
   }
   return repasses;
 }
@@ -31,7 +48,7 @@ function extrairString(repasse, propriedade) {
 
 /// USER STORY 1
 
-console.log(`Total de repasses processados: ${filtrarLista(undefined).length}`);
+console.log(`Total de repasses processados: ${repasses.length}`);
 
 /// USER STORY 2
 
@@ -335,20 +352,4 @@ filtrarLista('falha', 'motivo').forEach((repasse) => {
   console.log(
     `Detalhes das transações que não foram processadas com sucesso: repasse para ${detalhes.orgao} em ${detalhes.data}, no valor de ${detalhes.valor}`
   );
-});
-
-/// USER STORY 6
-
-let repassesInvalidos = [];
-
-filtrarLista('falha', 'motivo').forEach((repasse) => {
-  const dadosInvalidos = Array.from(repasse).filter(
-    (detalhes) => detalhes.motivo === undefined
-  );
-
-  if (dadosInvalidos.length === 0) return;
-  repassesInvalidos.push(dadosInvalidos);
-
-  const index = repasses.indexOf(dadosInvalidos);
-  repasses.splice(index, 1);
 });
