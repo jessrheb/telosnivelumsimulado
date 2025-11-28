@@ -1,0 +1,65 @@
+export const repassesTeste = [
+  {
+    orgao: 'MEC',
+    data: '01/01/2024',
+    valor: 500,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'Ministério da Saúde',
+    data: '03/01/2024',
+    valor: 750,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'MEC',
+    data: '05/01/2024',
+    valor: 1000,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'Ministério da Educação',
+    data: '08/01/2024',
+    valor: 600,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'Ministério da Saúde',
+    data: '10/01/2024',
+    valor: 900,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'Ministério da Educação',
+    data: '12/01/2024',
+    valor: 300,
+    status: 'falha',
+    motivo: 'dados inválidos',
+  },
+  {
+    orgao: 'Ministério da Saúde',
+    data: '15/01/2024',
+    valor: 1200,
+    status: 'sucesso',
+  },
+  {
+    orgao: 'MEC',
+    data: '17/01/2024',
+    valor: 800,
+    status: 'falha',
+    motivo: 'falta de verba',
+  },
+  {
+    orgao: 'Ministério da Educação',
+    data: '20/01/2024',
+    valor: 400,
+    status: 'falha',
+    motivo: 'falta de limite',
+  },
+  {
+    orgao: 'MEC',
+    data: '22/01/2024',
+    valor: 1100,
+    status: 'falha',
+  },
+];

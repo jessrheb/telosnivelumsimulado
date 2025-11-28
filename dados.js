@@ -1,4 +1,4 @@
-export let repasses = [
+export const repasses = [
   {
     orgao: 'Polícia Civil',
     data: '01/01/2024',
